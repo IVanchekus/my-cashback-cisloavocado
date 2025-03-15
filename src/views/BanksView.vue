@@ -20,9 +20,7 @@
         </IonItem>
       </IonList>
 
-      <IonModal :is-open="isModalOpen" @did-dismiss="isModalOpen = false">
-        <CategorySelectionModal v-model:is-open="isModalOpen" :bank-id="selectedBank!" />
-      </IonModal>
+      <CategorySelectionModal v-model:is-open="isModalOpen" :bank-id="selectedBank!" />
     </IonContent>
   </IonPage>
 </template>
@@ -34,7 +32,7 @@ import {
   IonPage, IonHeader, IonToolbar, IonTitle, IonContent, IonList, IonItem, 
   IonLabel, IonButton, IonModal 
 } from '@ionic/vue';
-import CategorySelectionModal from '../components/CategorySelectionModal.vue';
+import CategorySelectionModal from '../components/CategorySelectionModal/CategorySelectionModal.vue';
 
 const store = useCashbackStore();
 const selectedBank = ref<string | null>(null);

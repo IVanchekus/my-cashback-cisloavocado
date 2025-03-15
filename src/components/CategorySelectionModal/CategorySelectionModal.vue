@@ -9,12 +9,12 @@
     <div style="height: 100%;">
       <IonContent>
         <IonList class="p-4">
-          <IonItem v-for="bank in store.banks" :key="bank.id" class="ion-margin-vertical" @click="toggleBank(bank.id)" >
+          <IonItem v-for="category in store.categories" :key="category.id" class="ion-margin-vertical" @click="toggleCategory(category.id)">
             <IonLabel class="ion-text-wrap">
-              <h2>{{ bank.name }}</h2>
+              <h2>{{ category.name }}</h2>
             </IonLabel>
-            <IonCheckbox
-              :checked="store.categories.find(c => c.id === props.categoryId)?.selectedBanks.includes(bank.id)"
+            <IonCheckbox 
+              :checked="store.banks.find(b => b.id === props.bankId)?.selectedCategories.includes(category.id)"
               slot="end"
             />
           </IonItem>
@@ -34,14 +34,13 @@ import {
   IonContent, IonList, IonItem, 
   IonLabel, IonButton, IonCheckbox, IonModal
 } from '@ionic/vue';
-import type { IProps } from './bankSelectionModal.types';
+import type { IProps } from './categorySelectionModal.types';
 
 const props = defineProps<IProps>();
-
 const emit = defineEmits(['update:isOpen']);
 const store = useCashbackStore();
 
-const toggleBank = (bankId: string) => {
-  store.toggleBankInCategory(props.categoryId, bankId);
+const toggleCategory = (categoryId: string) => {
+  store.toggleBankInCategory(categoryId, props.bankId);
 };
 </script>
