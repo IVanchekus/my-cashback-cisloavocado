@@ -30,7 +30,7 @@ import { useCashbackStore } from '../store/cashback';
 import { ref } from 'vue';
 import { 
   IonPage, IonHeader, IonToolbar, IonTitle, IonContent, IonList, IonItem, 
-  IonLabel, IonButton, IonModal 
+  IonLabel, IonButton
 } from '@ionic/vue';
 import CategorySelectionModal from '../components/CategorySelectionModal/CategorySelectionModal.vue';
 
