@@ -1,8 +1,39 @@
-<!-- views/BanksView.vue -->
+<template>
+  <IonPage>
+    <IonHeader>
+      <IonToolbar>
+        <IonTitle>Банки</IonTitle>
+      </IonToolbar>
+    </IonHeader>
+    <IonContent>
+      <IonList class="p-4">
+        <IonItem v-for="bank in store.banks.filter(b => b.selectedCategories.length)" :key="bank.id" class="ion-margin-vertical">
+          <IonLabel class="ion-text-wrap">
+            <h2>{{ bank.name }}</h2>
+            <p v-for="categoryId in bank.selectedCategories" :key="categoryId" class="text-sm text-gray-600">
+              {{ store.categories.find(c => c.id === categoryId)?.name }}
+            </p>
+          </IonLabel>
+          <IonButton slot="end" color="primary" @click="openModal(bank.id)">
+            +
+          </IonButton>
+        </IonItem>
+      </IonList>
+
+      <IonModal :is-open="isModalOpen" @did-dismiss="isModalOpen = false">
+        <CategorySelectionModal v-model:is-open="isModalOpen" :bank-id="selectedBank!" />
+      </IonModal>
+    </IonContent>
+  </IonPage>
+</template>
+
 <script setup lang="ts">
 import { useCashbackStore } from '../store/cashback';
 import { ref } from 'vue';
-import { IonButton, IonCard, IonCardContent, IonLabel, IonContent,IonPage } from '@ionic/vue';
+import { 
+  IonPage, IonHeader, IonToolbar, IonTitle, IonContent, IonList, IonItem, 
+  IonLabel, IonButton, IonModal 
+} from '@ionic/vue';
 import CategorySelectionModal from '../components/CategorySelectionModal.vue';
 
 const store = useCashbackStore();
@@ -14,31 +45,3 @@ const openModal = (bankId: string) => {
   isModalOpen.value = true;
 };
 </script>
-
-<template>
-  <ion-page>
-    <ion-content class="ion-padding">
-      <h1 class="text-xl font-bold">Банки</h1>
-      <div v-for="bank in store.banks.filter(b => b.selectedCategories.length)" :key="bank.id">
-        <ion-card class="ion-margin-vertical">
-          <ion-card-content>
-            <div class="flex justify-between items-center">
-              <ion-label class="ion-text-wrap">{{ bank.name }}</ion-label>
-              <ion-button @click="openModal(bank.id)" color="primary" size="small">
-                +
-              </ion-button>
-            </div>
-            <div class="text-sm text-gray-600 mt-2">
-              <strong>Выбранные категории:</strong>
-              <div v-for="categoryId in bank.selectedCategories" :key="categoryId">
-                <span>{{ store.categories.find(c => c.id === categoryId)?.name }}</span>
-              </div>
-            </div>
-          </ion-card-content>
-        </ion-card>
-      </div>
-
-      <CategorySelectionModal v-if="isModalOpen" v-model:is-open="isModalOpen" :bank-id="selectedBank!" />
-    </ion-content>
-  </ion-page>
-</template>

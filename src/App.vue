@@ -1,15 +1,12 @@
-<script setup lang="ts">
-import {  IonContent, IonPage } from '@ionic/vue';
-import Sidebar from './components/Sidebar.vue';
-
-</script>
-
 <template>
-  <IonPage>
-    <IonContent><RouterView></RouterView></IonContent>
-    <Sidebar></Sidebar>
-  </IonPage>
+  <IonApp>
+    <IonRouterOutlet />
+  </IonApp>
 </template>
+
+<script setup lang="ts">
+import {  IonApp, IonContent, IonPage, IonRouterOutlet } from '@ionic/vue';
+</script>
 
 <style scoped>
 .logo {
