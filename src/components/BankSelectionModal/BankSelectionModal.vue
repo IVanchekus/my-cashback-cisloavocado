@@ -8,18 +8,15 @@
   >
     <div style="height: 100%;">
       <IonContent>
-        <IonList class="p-4">
+        <h1>{{ store.categories.find(c => c.id === props.categoryId)?.name }}</h1>
+        <IonList>
           <IonItem v-for="bank in store.banks" :key="bank.id" class="ion-margin-vertical" @click="toggleBank(bank.id)" >
-            <IonLabel class="ion-text-wrap">
-              <h2>{{ bank.name }}</h2>
-            </IonLabel>
             <IonCheckbox
               :checked="store.categories.find(c => c.id === props.categoryId)?.selectedBanks.includes(bank.id)"
-              slot="end"
-            />
+            >{{ bank.name }}</IonCheckbox>
           </IonItem>
         </IonList>
-        <div class="flex justify-end p-4">
+        <div>
           <IonButton color="danger" @click="emit('update:isOpen', false)">Закрыть</IonButton>
         </div>
       </IonContent>

@@ -6,7 +6,7 @@
       </IonToolbar>
     </IonHeader>
     <IonContent>
-      <IonList class="p-4">
+      <IonList>
         <IonItem v-for="category in store.categories" :key="category.id" class="ion-margin-vertical">
           <IonLabel class="ion-text-wrap">
             <h2>{{ category.name }}</h2>

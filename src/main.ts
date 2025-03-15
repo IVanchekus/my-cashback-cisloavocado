@@ -9,6 +9,8 @@ import '@ionic/vue/css/normalize.css';
 import '@ionic/vue/css/structure.css';
 import '@ionic/vue/css/typography.css';
 
+// import './assets/styles/style.css';
+
 import { createPinia } from 'pinia';
 
 const pinia = createPinia();

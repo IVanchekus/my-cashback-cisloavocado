@@ -6,8 +6,8 @@
       </IonToolbar>
     </IonHeader>
     <IonContent>
-      <IonList class="p-4">
-        <IonItem v-for="bank in store.banks.filter(b => b.selectedCategories.length)" :key="bank.id" class="ion-margin-vertical">
+      <IonList>
+        <IonItem v-for="bank in store.banks" :key="bank.id" class="ion-margin-vertical">
           <IonLabel class="ion-text-wrap">
             <h2>{{ bank.name }}</h2>
             <p v-for="categoryId in bank.selectedCategories" :key="categoryId" class="text-sm text-gray-600">
