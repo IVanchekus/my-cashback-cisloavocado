@@ -16,9 +16,6 @@
             >{{ bank.name }}</IonCheckbox>
           </IonItem>
         </IonList>
-        <div>
-          <IonButton color="danger" @click="emit('update:isOpen', false)">Закрыть</IonButton>
-        </div>
       </IonContent>
     </div>
   </IonModal>

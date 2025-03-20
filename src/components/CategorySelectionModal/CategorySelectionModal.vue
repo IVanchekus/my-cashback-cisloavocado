@@ -16,9 +16,6 @@
             >{{ category.name }}</IonCheckbox>
           </IonItem>
         </IonList>
-        <div>
-          <IonButton color="light" @click="emit('update:isOpen', false)">Закрыть</IonButton>
-        </div>
       </IonContent>
     </div>
   </IonModal>
@@ -28,10 +25,7 @@
 import { useCashbackStore } from '../../store/cashback';
 import { defineProps, defineEmits, ref } from 'vue';
 import { 
-  IonContent, IonList, IonItem, 
-  IonLabel, IonButton, IonCheckbox, IonModal,
-  IonTitle,
-  IonCardTitle
+  IonContent, IonList, IonItem, IonButton, IonCheckbox, IonModal
 } from '@ionic/vue';
 import type { IProps } from './categorySelectionModal.types';
 

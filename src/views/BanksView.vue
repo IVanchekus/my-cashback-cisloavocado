@@ -20,7 +20,7 @@
         </IonItem>
       </IonList>
 
-      <CategorySelectionModal v-model:is-open="isModalOpen" :bank-id="selectedBank!" />
+      <CategorySelectionModal v-if="isModalOpen" v-model:is-open="isModalOpen" :bank-id="selectedBank!" />
     </IonContent>
   </IonPage>
 </template>
