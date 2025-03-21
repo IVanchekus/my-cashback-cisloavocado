@@ -23,17 +23,15 @@
 
 <script setup lang="ts">
 import { useCashbackStore } from '../../store/cashback';
-import { defineProps, defineEmits, ref } from 'vue';
+import { defineProps, defineEmits } from 'vue';
 import { 
-  IonContent, IonList, IonItem, IonButton, IonCheckbox, IonModal
+  IonContent, IonList, IonItem, IonCheckbox, IonModal
 } from '@ionic/vue';
 import type { IProps } from './categorySelectionModal.types';
 
 const props = defineProps<IProps>();
 const emit = defineEmits(['update:isOpen']);
 const store = useCashbackStore();
-
-const test = ref()
 
 const toggleCategory = (categoryId: string) => {
   store.toggleBankInCategory(categoryId, props.bankId);

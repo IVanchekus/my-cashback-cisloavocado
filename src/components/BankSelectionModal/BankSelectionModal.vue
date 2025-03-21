@@ -25,8 +25,7 @@
 import { useCashbackStore } from '../../store/cashback';
 import { defineProps, defineEmits } from 'vue';
 import { 
-  IonContent, IonList, IonItem, 
-  IonLabel, IonButton, IonCheckbox, IonModal
+  IonContent, IonList, IonItem, IonCheckbox, IonModal
 } from '@ionic/vue';
 import type { IProps } from './bankSelectionModal.types';
 

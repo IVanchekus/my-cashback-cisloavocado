@@ -9,9 +9,13 @@ import '@ionic/vue/css/normalize.css';
 import '@ionic/vue/css/structure.css';
 import '@ionic/vue/css/typography.css';
 
+import { initializeDatabase } from './database/data-source';
+
 // import './assets/styles/style.css';
 
 import { createPinia } from 'pinia';
+
+initializeDatabase();
 
 const pinia = createPinia();
 
