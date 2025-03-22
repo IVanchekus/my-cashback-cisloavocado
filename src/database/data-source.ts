@@ -1,6 +1,7 @@
 import "reflect-metadata";
 import { DataSource } from "typeorm";
 import { CapacitorSQLite, SQLiteConnection } from "@capacitor-community/sqlite";
+// import { Category } from "../entities/Category";
 
 let AppDataSource: DataSource;
 
